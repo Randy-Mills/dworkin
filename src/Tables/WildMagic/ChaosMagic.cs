@@ -10016,6 +10016,7 @@ namespace Generator.Tables.WildMagic
         }
 
         public int Max { get; set; }
+        public int Min { get; set; }
         public Percentile[] Table { get; set; }
 
         public string Fetch(int position)

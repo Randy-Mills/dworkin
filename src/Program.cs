@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
@@ -25,14 +26,7 @@ namespace Generator
 
             _client.Log += _logger.Log;
 
-            //  You can assign your bot token to a string, and pass that in to connect.
-            //  This is, however, insecure, particularly if you plan to have your code hosted in a public repository.
-            var token = "";
-
-            // Some alternative options would be to keep your token in an Environment Variable or a standalone file.
-            // var token = Environment.GetEnvironmentVariable("NameOfYourEnvironmentVariable");
-            // var token = File.ReadAllText("token.txt");
-            // var token = JsonConvert.DeserializeObject<AConfigurationClass>(File.ReadAllText("config.json")).Token;
+            var token = File.ReadAllText("token.txt");
 
             _client.MessageUpdated += MessageUpdated;
             _client.MessageReceived += OnMessageReceivedAsync;
@@ -85,6 +79,10 @@ namespace Generator
                 case "ws":
                     WildSurgeCommand wcs = new WildSurgeCommand(_rng, _logger);
                     response = wcs.Generate(commands);
+                    break;
+                case "npc":
+                    NPCCommand npcc = new NPCCommand(_rng, _logger);
+                    response = npcc.Generate(commands);
                     break;
                 default:
                     response += "Command not recognized";
