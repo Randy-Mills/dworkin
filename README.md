@@ -1,5 +1,5 @@
 # dworkin
-Dworkin is a discord not which can be called to randomly generate various useful things for Dungeon and Dragons.
+Dworkin is a discord bot which can be called to randomly generate various useful things for Dungeon and Dragons.
 
 To do:
 
