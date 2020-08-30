@@ -12,6 +12,6 @@ Tables
 
 Behaviour/Architecture
 - Better command structure
-- Move tables to db (maybe dynamo) then setup tables on not start
+- Move tables to db (maybe dynamo) then setup tables on bot start
 - Host bot on AWS
 - Parse responses to automatically roll dice calls in strings. IE "You gain 1d3 wishes" would roll 1d3 and return the generated value in the string.
