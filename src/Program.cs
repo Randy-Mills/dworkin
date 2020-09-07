@@ -15,6 +15,8 @@ namespace Generator
         private Random _rng;
         private Logger _logger;
 
+        private DiceParser _diceParser;
+
         public static void Main(string[] args)
             => new Program().MainAsync().GetAwaiter().GetResult();
 
@@ -23,6 +25,7 @@ namespace Generator
             _client = new DiscordSocketClient();
             _rng = new Random();
             _logger = new Logger();
+            _diceParser = new DiceParser(_rng);
 
             _client.Log += _logger.Log;
 
@@ -90,7 +93,7 @@ namespace Generator
             }
             
             if (messageChannel)
-                await context.Channel.SendMessageAsync(response);
+                await context.Channel.SendMessageAsync(_diceParser.Parse(response));
             else
                 await context.User.SendMessageAsync(response);
         }

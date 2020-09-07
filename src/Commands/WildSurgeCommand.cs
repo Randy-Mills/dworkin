@@ -47,8 +47,19 @@ namespace Generator.Commands
 
             if (randomValue > table.Max)
                 return $"Provided value is out of range. Selected table has {table.Max} rows.";
+
+            var output = $"[{randomValue}]: {table.Fetch(randomValue)}";
+
+            if (Array.Exists(commands, element => element.ToLower() == "-duration"))
+            {
+                var durationTable = new SurgeDuration();
+                var randomDuration = _rng.Next(durationTable.Max);
+                var duration = durationTable.Fetch(randomDuration);
+                duration = char.ToLower(duration[0]) + duration.Substring(1);
+                output += $" The condition will last until {duration}";
+            }
             
-            return $"[{randomValue}]: {table.Fetch(randomValue)}";
+            return output;
         }
     }
 }
