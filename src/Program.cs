@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
@@ -29,7 +30,7 @@ namespace Generator
 
             _client.Log += _logger.Log;
 
-            var token = File.ReadAllText("token.txt");
+            var token = File.ReadLines("token.txt").First();
 
             _client.MessageUpdated += MessageUpdated;
             _client.MessageReceived += OnMessageReceivedAsync;
