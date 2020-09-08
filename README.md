@@ -6,7 +6,7 @@ Dworkin is a discord bot which can be called to randomly generate various useful
 To do:
 
 Tables
-- [ ] New NPC names
+- [x] New NPC names (using Namey by [muffinlabs](http://muffinlabs.com/))
 - [ ] Clean up large _chaos_ wild magic table
 - [ ] Add wondrous item tables
 - [x] Add wild surge duration table
@@ -15,5 +15,5 @@ Tables
 Behaviour/Architecture
 - [ ] Better command structure
 - [ ] Move tables to db (maybe dynamo) then setup tables on bot start
-- [ ] Host bot on AWS
+- [x] Host bot on ~AWS~ DigitalOcean
 - [x] Parse responses to automatically roll dice calls in strings. IE "You gain 1d3 wishes" would roll 1d3 and return the generated value in the string.

@@ -8,8 +8,17 @@ namespace Generator.Tables.AppearanceAdjectives
     public class AppearanceAdjectives : ITable
     {
         private Percentile[] _table = {
-            new Percentile(0,50,"disheveled"),
-            new Percentile(51,99,"jovial")
+            new Percentile(0,1,"disheveled"),
+            new Percentile(1,2,"jovial"),
+            new Percentile(2,3,"filthy"),
+            new Percentile(3,4,"clean"),
+            new Percentile(4,5,"tense"),
+            new Percentile(5,6,"boorish"),
+            new Percentile(6,7,"dull"),
+            new Percentile(7,8,"confident"),
+            new Percentile(8,9,"snobbish"),
+            new Percentile(9,10,"scruffy"),
+            new Percentile(10,11,"elegant")
         };
 
         public AppearanceAdjectives()

@@ -5,6 +5,7 @@ using Toolkit.Generator;
 
 namespace Generator.Tables.Names
 {
+    [Obsolete]
     public class Names : ITable
     {
         private Percentile[] _table = {

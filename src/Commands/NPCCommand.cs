@@ -1,8 +1,9 @@
 using System;
+using System.Net.Http;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Generator.Tables.AppearanceAdjectives;
 using Generator.Tables.Genders;
-using Generator.Tables.Names;
 using Generator.Tables.Races;
 using Generator.Utils;
 using Toolkit.Generator;
@@ -37,32 +38,43 @@ namespace Generator.Commands
             if (randomValue > table.Max || randomValue < table.Min)
                 return $"Provided value is out of range. Selected table has {table.Max} rows.";
 
-            return $"{table.Fetch(randomValue)} ({randomValue})";
+            return $"{table.Fetch(randomValue)}";
+        }
+
+        private async Task<string> GenerateName(string uri)
+        {
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(uri);
+            response.EnsureSuccessStatusCode();
+            var responseBody = await response.Content.ReadAsStringAsync();
+            
+            return responseBody.TrimStart('[').TrimEnd(']').Trim('"');
         }
 
         public string Generate(string[] commands)
         {
             ITable genderTable = new Genders();
             ITable appearanceAdjectivesTable = new AppearanceAdjectives();
-            ITable namesTable = new Names();
             ITable racesTable = new Races();
 
-            string name = GenerateFromATable(namesTable, commands);
             string gender = GenerateFromATable(genderTable, commands);
+            string name = GenerateName($"https://namey.muffinlabs.com/name.json?type={gender}&with_surname=true&frequency=all").Result;
             string race = GenerateFromATable(racesTable, commands);
             string appearanceAdjective = GenerateFromATable(appearanceAdjectivesTable, commands);
 
             string genderPronoun = "";
+            var appearanceString = "appears";
 
-            if (gender.Contains("female")) {
+            if (gender == "female") {
                 genderPronoun = "She";
-            } else if (gender.Contains("male")) {
+            } else if (gender == "male") {
                 genderPronoun = "He";
             } else {
                 genderPronoun = "They";
+                appearanceString = "appear";
             }
 
-            return $"{name}, a {gender} {race}, stands before you. {genderPronoun} appears {appearanceAdjective}.";
+            return $"{name}, a {race} {gender}, stands before you. {genderPronoun} {appearanceString} {appearanceAdjective}.";
         }
     }
 }

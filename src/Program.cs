@@ -106,6 +106,7 @@ namespace Generator
                  + "\n\tOptions:"
                  + "\n\t -eldritch: Roll on the Ravenloft eldritch table."
                  + "\n\t -chaos: Roll on the large, extra chaotic table."
+                 + "\n\t -duration: Include a random duration value with the generated wild surge."
                  + "\n\t digit: Directly lookup the value instead of rolling."
                  + "\n~weather, ~w: Randomly generate a basic weather state."
                  + "\n\tOptions:"
