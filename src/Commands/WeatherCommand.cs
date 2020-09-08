@@ -52,7 +52,7 @@ namespace Generator.Commands
             if (randomValue > table.Max)
                 return $"Provided value is out of range. Selected table has {table.Max} rows.";
             
-            return $"[{randomValue}]: {table.Fetch(randomValue)}";
+            return $">>> [{randomValue}]: {table.Fetch(randomValue)}";
         }
     }
 }

@@ -28,6 +28,10 @@ namespace Generator.Commands
             {
                 table = new EldritchMagic();
             }
+            else if (Array.Exists(commands, element => element.ToLower() == "-izzet"))
+            {
+                table = new IzzetMagic();
+            }
             else
             {
                 table = new WildMagic();
@@ -59,7 +63,7 @@ namespace Generator.Commands
                 output += $" The condition will last until {duration}";
             }
             
-            return output;
+            return ">>> " + output;
         }
     }
 }

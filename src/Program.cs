@@ -104,8 +104,9 @@ namespace Generator
             return "Commands"
                  + "\n~wildsurge, ~ws: Randomly roll a Wild Surge effect."
                  + "\n\tOptions:"
-                 + "\n\t -eldritch: Roll on the Ravenloft eldritch table."
                  + "\n\t -chaos: Roll on the large, extra chaotic table."
+                 + "\n\t -eldritch: Roll on the Ravenloft eldritch table."
+                 + "\n\t -izzet: Roll on the Izzet Guild table."
                  + "\n\t -duration: Include a random duration value with the generated wild surge."
                  + "\n\t digit: Directly lookup the value instead of rolling."
                  + "\n~weather, ~w: Randomly generate a basic weather state."
@@ -113,7 +114,8 @@ namespace Generator
                  + "\n\t -light: Randomly generate a light precipitation state."
                  + "\n\t -medium: Randomly generate a medium precipitation state."
                  + "\n\t -heavy: Randomly generate a heavy precipitation state."
-                 + "\n\t digit: Directly lookup the value instead of rolling.";
+                 + "\n\t digit: Directly lookup the value instead of rolling."
+                 + "\n~npc: Randomly generate a basic NPC with a name, gender, race, and appearance.";
         }
     }
 }

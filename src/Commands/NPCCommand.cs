@@ -74,7 +74,7 @@ namespace Generator.Commands
                 appearanceString = "appear";
             }
 
-            return $"{name}, a {race} {gender}, stands before you. {genderPronoun} {appearanceString} {appearanceAdjective}.";
+            return $">>> {name}, a {race} {gender}, stands before you. {genderPronoun} {appearanceString} {appearanceAdjective}.";
         }
     }
 }
