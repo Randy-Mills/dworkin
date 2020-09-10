@@ -88,6 +88,14 @@ namespace Generator
                     NPCCommand npcc = new NPCCommand(_rng, _logger);
                     response = npcc.Generate(commands);
                     break;
+                case "injury":
+                    InjuryCommand injury = new InjuryCommand(_rng, _logger);
+                    response = injury.Generate(commands);
+                    break;
+                case "madness":
+                    MadnessCommand madness = new MadnessCommand(_rng, _logger);
+                    response = madness.Generate(commands);
+                    break;
                 default:
                     response += "Command not recognized";
                     break;
@@ -109,6 +117,25 @@ namespace Generator
                  + "\n\t -izzet: Roll on the Izzet Guild table."
                  + "\n\t -duration: Include a random duration value with the generated wild surge."
                  + "\n\t digit: Directly lookup the value instead of rolling."
+                 + "\n~injury: Rolls for a Lingering Injury depending on type of damage."
+                 + "\n\tOptions:"
+                 + "\n\t -acid: Rolls for a lingering injury caused by acid."
+                 + "\n\t -cold: Rolls for a lingering injury caused by cold."
+                 + "\n\t -fire: Rolls for a lingering injury caused by fire."
+                 + "\n\t -force: Rolls for a lingering injury caused by force."
+                 + "\n\t -lightning: Rolls for a lingering injury caused by lightning."
+                 + "\n\t -necrotic: Rolls for a lingering injury caused by necrotic."
+                 + "\n\t -piercing: Rolls for a lingering injury caused by piercing."
+                 + "\n\t -poison: Rolls for a lingering injury caused by poison."
+                 + "\n\t -psychic: Rolls for a lingering injury caused by psychic."
+                 + "\n\t -radiant: Rolls for a lingering injury caused by radiant."
+                 + "\n\t -slashing: Rolls for a lingering injury caused by slashing."
+                 + "\n\t -thunder: Rolls for a lingering injury caused by thunder."
+                + "\n~madness: Rolls for a madness effect depending on the severity."
+                 + "\n\tOptions:"
+                 + "\n\t -short: Rolls for a short term madness effect."
+                 + "\n\t -long: Rolls for a long term madness effect."
+                 + "\n\t -indefinite: Rolls for a indefinite madness effect."
                  + "\n~weather, ~w: Randomly generate a basic weather state."
                  + "\n\tOptions:"
                  + "\n\t -light: Randomly generate a light precipitation state."

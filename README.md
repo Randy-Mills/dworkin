@@ -11,6 +11,7 @@ Tables
 - [ ] Add wondrous item tables
 - [x] Add wild surge duration table
 - [ ] More wild surge tables
+- [ ] Update Madness table effects to include what is required to cure.
 
 Behaviour/Architecture
 - [ ] Better command structure
