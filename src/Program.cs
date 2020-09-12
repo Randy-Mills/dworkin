@@ -42,6 +42,7 @@ namespace Generator
 
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();
+            await _client.SetGameAsync("~help");
 
             // Block this task until the program is closed.
             await Task.Delay(-1);
@@ -96,6 +97,10 @@ namespace Generator
                     MadnessCommand madness = new MadnessCommand(_rng, _logger);
                     response = madness.Generate(commands);
                     break;
+                case "bard":
+                    BardCommand bard = new BardCommand(_rng, _logger);
+                    response = bard.Generate(commands);
+                    break;
                 default:
                     response += "Command not recognized";
                     break;
@@ -105,6 +110,7 @@ namespace Generator
                 await context.Channel.SendMessageAsync(_diceParser.Parse(response));
             else
                 await context.User.SendMessageAsync(response);
+                await context.Channel.SendMessageAsync("I have sent help to your PMs.");
         }
 
         private string Help()
@@ -117,6 +123,10 @@ namespace Generator
                  + "\n\t -izzet: Roll on the Izzet Guild table."
                  + "\n\t -duration: Include a random duration value with the generated wild surge."
                  + "\n\t digit: Directly lookup the value instead of rolling."
+                 + "\n~bard: Rolls for an inpirational or brutal remark to others around you."
+                 + "\n\tOptions:"
+                 + "\n\t -mockery: Rolls for a brutal insult."
+                 + "\n\t -inspiration: Rolls for an inspirational line to your comrads."
                  + "\n~injury: Rolls for a Lingering Injury depending on type of damage."
                  + "\n\tOptions:"
                  + "\n\t -acid: Rolls for a lingering injury caused by acid."
