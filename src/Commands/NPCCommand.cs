@@ -2,13 +2,13 @@ using System;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Generator.Tables.AppearanceAdjectives;
-using Generator.Tables.Genders;
-using Generator.Tables.Races;
-using Generator.Utils;
-using Toolkit.Generator;
+using Dworkin.Interfaces;
+using Dworkin.Tables.AppearanceAdjectives;
+using Dworkin.Tables.Genders;
+using Dworkin.Tables.Races;
+using Dworkin.Utils;
 
-namespace Generator.Commands
+namespace Dworkin.Commands
 {
     public class NPCCommand : IGenerator
     {

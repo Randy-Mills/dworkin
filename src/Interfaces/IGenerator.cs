@@ -1,4 +1,4 @@
-namespace Toolkit.Generator
+namespace Dworkin.Interfaces
 {
     public interface IGenerator
     {

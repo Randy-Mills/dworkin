@@ -1,10 +1,10 @@
 using System;
 using System.Text.RegularExpressions;
-using Generator.Tables.Injury;
-using Generator.Utils;
-using Toolkit.Generator;
+using Dworkin.Interfaces;
+using Dworkin.Tables.Injury;
+using Dworkin.Utils;
 
-namespace Generator.Commands
+namespace Dworkin.Commands
 {
     public class InjuryCommand : IGenerator
     {

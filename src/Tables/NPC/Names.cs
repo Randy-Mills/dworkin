@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
-using Generator.Models;
-using Toolkit.Generator;
+using Dworkin.Interfaces;
+using Dworkin.Models;
 
-namespace Generator.Tables.Names
+namespace Dworkin.Tables.Names
 {
     [Obsolete]
     public class Names : ITable
@@ -27,6 +27,7 @@ namespace Generator.Tables.Names
         public int Max { get; set; }
         public int Min { get; set; }
         public Percentile[] Table { get; set; }
+        public Table MainTable { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public string Fetch(int position)
         {

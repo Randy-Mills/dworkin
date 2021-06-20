@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
-using Generator.Commands;
-using Generator.Utils;
+using Dworkin.Commands;
+using Dworkin.Utils;
 
-namespace Generator
+namespace Dworkin
 {
     public class Program
     {

@@ -2,7 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Discord;
 
-namespace Generator.Utils
+namespace Dworkin.Utils
 {
     public class Logger
     {

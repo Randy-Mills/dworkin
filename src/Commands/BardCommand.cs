@@ -1,10 +1,10 @@
 using System;
 using System.Text.RegularExpressions;
-using Generator.Tables.Bard;
-using Generator.Utils;
-using Toolkit.Generator;
+using Dworkin.Utils;
+using Dworkin.Tables.Bard;
+using Dworkin.Interfaces;
 
-namespace Generator.Commands
+namespace Dworkin.Commands
 {
     public class BardCommand : IGenerator
     {

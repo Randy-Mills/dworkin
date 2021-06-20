@@ -1,12 +1,16 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using Generator.Models;
-using Toolkit.Generator;
+using System.Text.Json;
+using Dworkin.Interfaces;
+using Dworkin.Models;
+using Dworkin.Utils;
 
-namespace Generator.Tables.Races
+namespace Dworkin.Tables.Races
 {
     public class Races : ITable
     {
+        private const string _tableJson = "../TableJson/races.json";
         private Percentile[] _table = {
 
             // All odd races are 1 in 1000 or 0.1%
@@ -64,11 +68,13 @@ namespace Generator.Tables.Races
         {
             Table = _table;
             Max = _table[_table.Length-1].max;
+            MainTable = BuildTable();
         }
 
         public int Max { get; set; }
         public int Min { get; set; }
         public Percentile[] Table { get; set; }
+        public Table MainTable { get; set; }
 
         public string Fetch(int position)
         {
@@ -79,6 +85,13 @@ namespace Generator.Tables.Races
                     response = element.value;
             }
             return response.ToLower();
+        }
+
+        private Table BuildTable()
+        {
+            var json = Importer.LoadJsonFromFileAsync(_tableJson);
+            Table raceTable = JsonSerializer.Deserialize<Table>(json);
+            return raceTable;
         }
     }
 }

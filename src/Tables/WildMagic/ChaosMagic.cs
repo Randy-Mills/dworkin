@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
-using Generator.Models;
-using Toolkit.Generator;
+using Dworkin.Interfaces;
+using Dworkin.Models;
 
-namespace Generator.Tables.WildMagic
+namespace Dworkin.Tables.WildMagic
 {
     public class ChaosMagic : ITable
     {
@@ -10018,6 +10018,7 @@ namespace Generator.Tables.WildMagic
         public int Max { get; set; }
         public int Min { get; set; }
         public Percentile[] Table { get; set; }
+        public Table MainTable { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public string Fetch(int position)
         {

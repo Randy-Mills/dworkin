@@ -1,10 +1,10 @@
 using System;
 using System.Text.RegularExpressions;
-using Generator.Tables.Madness;
-using Generator.Utils;
-using Toolkit.Generator;
+using Dworkin.Interfaces;
+using Dworkin.Tables.Madness;
+using Dworkin.Utils;
 
-namespace Generator.Commands
+namespace Dworkin.Commands
 {
     public class MadnessCommand : IGenerator
     {

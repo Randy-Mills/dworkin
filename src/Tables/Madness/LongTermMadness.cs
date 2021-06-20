@@ -1,9 +1,9 @@
 using System;
 using System.Linq;
-using Generator.Models;
-using Toolkit.Generator;
+using Dworkin.Interfaces;
+using Dworkin.Models;
 
-namespace Generator.Tables.Madness
+namespace Dworkin.Tables.Madness
 {
     public class LongTermMadness : ITable
     {
@@ -31,6 +31,7 @@ namespace Generator.Tables.Madness
         public int Max { get; set; }
         public int Min { get; set; }
         public Percentile[] Table { get; set; }
+        public Table MainTable { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public string Fetch(int position)
         {

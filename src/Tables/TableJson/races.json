@@ -1,0 +1,141 @@
+{
+    "rows": [
+        {
+            "value": "Grung"
+        },
+        {
+            "value": "Locathah"
+        },
+        {
+            "value": "Verdan"
+        },
+        {
+            "value": "Simic Hybrid"
+        },
+        {
+            "value": "Vedalken"
+        },
+        {
+            "value": "Centaur"
+        },
+        {
+            "value": "Loxodon"
+        },
+        {
+            "value": "Minotaur"
+        },
+        {
+            "value": "Gith"
+        },
+        {
+            "value": "Shifter"
+        },
+        {
+            "value": "Warforged"
+        },
+        {
+            "value": "Changeling"
+        },
+        {
+            "value": "Kalashtar"
+        },
+        {
+            "value": "Orc of Eberron"
+        },
+        {
+            "value": "Tortle"
+        },
+        {
+            "value": "Feral Tiefling"
+        },
+        {
+            "value": "Tabaxi"
+        },
+        {
+            "value": "Triton"
+        },
+        {
+            "value": "Yuan-ti Pureblood"
+        },
+        {
+            "value": "Orc"
+        },
+        {
+            "value": "Lizardfolk"
+        },
+        {
+            "value": "Kobold"
+        },
+        {
+            "value": "Goblin"
+        },
+        {
+            "value": "Hobgoblin"
+        },
+        {
+            "value": "Kenku"
+        },
+        {
+            "value": "Firbolg"
+        },
+        {
+            "value": "Bugbear"
+        },
+        {
+            "value": "Aasimar"
+        },
+        {
+            "value": "Aarakocra"
+        },
+        {
+            "value": "Genasi"
+        },
+        {
+            "value": "Goliath"
+        },
+        {
+            "value": "Leonin"
+        },
+        {
+            "value": "Satyr"
+        },
+        {
+            "value": "Eldar"
+        },
+        {
+            "value": "Half-Orc"
+        },
+        {
+            "value": "Human",
+            "weight": 23
+        },
+        {
+            "value": "Tiefling",
+            "weight": 10
+        },
+        {
+            "value": "Halfling",
+            "weight": 10
+        },
+        {
+            "value": "Half-Elf",
+            "weight": 10
+        },
+        {
+            "value": "Gnome",
+            "weight": 10
+        },
+        {
+            "value": "Elf",
+            "weight": 10
+        },
+        {
+            "value": "Dwarf",
+            "weight": 10
+        },
+        {
+            "value": "Dragonborn",
+            "weight": 10
+        }
+    ]
+}
