@@ -1,0 +1,31 @@
+{
+    "entities": [
+        {
+            "value": "*Brain Injury.* You have suffered a brain injury. You have disadvantage on Intelligence, Wisdom, and Charisma checks, as well as Intelligence, Wisdom, and Charisma saving throws. If you fail a saving throw against bludgeoning damage, force damage, or psychic damage, you are also stunned until the end of your next turn. Magic such as the regenerate spell can restore your full brain function."
+        },
+        {
+            "value": "*Indefinite Madness.* Roll on the Indefinite Madness table in the Dungeon Masters Guide."
+        },
+        {
+            "value": "*Severe headaches.* You have disadvantage on Wisdom checks and Wisdom saving throws. If you fail a saving throw against bludgeoning damage, force damage, or psychic damage, you are also stunned until the end of your next turn. Magic such as the regenerate spell can cure your severe headaches."
+        },
+        {
+            "value": "*Phobia.* You develop a debilitating fear of something in the situation from which you gained your injury. For example, if you were damaged by a mind flayer, you might have a fear of octopuses. The DM will decide. When you are confronted with your phobia, you have disadvantage on all ability checks and saving throws. Magic such as the regenerate spell can cure your phobia."
+        },
+        {
+            "value": "*Long-term Madness.* Roll on the Long-term Madness table in the Dungeon Masters Guide. Your madness lasts twice as long."
+        },
+        {
+            "value": "*Weak Persona.* You have suffered damage to your sense of self. You have disadvantage on Charisma checks. Magic such as the regenerate spell can heal your weak persona. Alternately, it will heal on its own in four weeks."
+        },
+        {
+            "value": "*Minor headaches.* You have disadvantage on Wisdom checks. Magical healing cures your minor headaches. Alternately, they will resolve on their own in two weeks."
+        },
+        {
+            "value": "*Inappropriate Volume.* You can’t regulate your volume. You shout when you intend to whisper, and whisper when you intend to shout. Magical healing cures your inappropriate volume."
+        },
+        {
+            "value": "*Short-term Madness.* Roll on the Short-term Madness table in the Dungeon Masters Guide. Your madness lasts twice as long."
+        }
+    ]
+}

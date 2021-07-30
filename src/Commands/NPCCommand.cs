@@ -62,6 +62,8 @@ namespace Dworkin.Commands
             string race = GenerateFromATable(racesTable, commands);
             string appearanceAdjective = GenerateFromATable(appearanceAdjectivesTable, commands);
 
+            Console.WriteLine("Appearance: " + appearanceAdjective);
+
             string genderPronoun = "";
             var appearanceString = "appears";
 

@@ -1,0 +1,154 @@
+{
+    "entities": [
+        {
+            "value": "Apply lightning type to the spell you cast."
+        },
+        {
+            "value": "For the next minute, you can teleport up to 20 feet as a bonus action on each of your turns."
+        },
+        {
+            "value": "You can take one additional action immediately."
+        },
+        {
+            "value": "You teleport up to 60 feet to an unoccupied space of your choice that you can see."
+        },
+        {
+            "value": "Your body turns to lightning, gain resistance to all damage for the next minute."
+        },
+        {
+            "value": "You cast Haste on a random creature within 60 feet of you."
+        },
+        {
+            "value": "You can't speak for the next minute. Whenever you try, sparks vomit out of your mouth."
+        },
+        {
+            "value": "Maximize the damage of the next damaging spell you cast within the next minute."
+        },
+        {
+            "value": "Up to three creatures you choose within 30 feet of you take 4d10 lightning damage."
+        },
+        {
+            "value": "For the next minute, you must shout when you speak and your voice echos like thunder."
+        },
+        {
+            "value": "Apply fire type to the spell you just cast."
+        },
+        {
+            "value": "You burst into flames taking 2d6 damage."
+        },
+        {
+            "value": "For the next minute, any flammable object you touch that isn't being worn or carried by another creature bursts into flame."
+        },
+        {
+            "value": "You cast Fireball as a 3rd-level spell centered on yourself."
+        },
+        {
+            "value": "You cast Fireball as a 5th-level spell."
+        },
+        {
+            "value": "Your clothes start to slowly melt as if made of wax."
+        },
+        {
+            "value": "You turn into a small sentient bonfire until the start of your next turn. While a bonfire, you are incapacitated and have a vulnerability to all damage. If you drop to 0 hit points, your fire goes out, and your form reverts."
+        },
+        {
+            "value": "Whatever you are touching is cursed with a permanent continual flame."
+        },
+        {
+            "value": "You are surrounded by a crown of will-o-wisp fire. If you cast a spell they fade to nothing."
+        },
+        {
+            "value": "You cast Grease centered on yourself."
+        },
+        {
+            "value": "Apply Ice type to the spell you cast."
+        },
+        {
+            "value": "The temperature in a 50-foot radius drops sharply, whenever an individual in this area of cold is attacked the attacker has advantage."
+        },
+        {
+            "value": "Your skin turns a vibrant shade of blue. A Remove Curse spell can end this effect."
+        },
+        {
+            "value": "Your Veins turn an icy blue for next minute. During that time, you have advantage on Constitution checks."
+        },
+        {
+            "value": "You cast Mirror Image. The images (and you) appear to be made of Ice."
+        },
+        {
+            "value": "You clothes and armor permanently turn transparent with an icy sheen."
+        },
+        {
+            "value": "You cast Armor of Agathys on yourself."
+        },
+        {
+            "value": "Each creature within 30 feet of you becomes invisible for the next minute. The invisibility ends on a creature when it attacks or casts a spell."
+        },
+        {
+            "value": "You cast a cone of cold in a random direction."
+        },
+        {
+            "value": "Your movements are slowed, reduce your movement speed by half and move in slow motion for an hour. You may not take bonus actions or hold spells in combat during this time."
+        },
+        {
+            "value": "Apply Acid type to the spell you just cast."
+        },
+        {
+            "value": "You vent noxious vapors in a random direction. Any creatures who enter the cloud become poisoned for 1d4 hours."
+        },
+        {
+            "value": "You are immune to being intoxicated by alcohol for the next 5d6 days."
+        },
+        {
+            "value": "Corrosive acid explodes in a nova around you. You and all creatures within 30 feet of you gain vulnerability to piercing damage for the next minute."
+        },
+        {
+            "value": "You become extremely sickly for the next day. Your hair falls out but grows back within 24 hours, your skin takes on a sickly color, and every time you do an action you must roll an 8 or higher CON save or vomit."
+        },
+        {
+            "value": "You cast Polymorph on yourself. If you fail the saving throw, you turn into a small ooze for the spell's duration."
+        },
+        {
+            "value": "You cast Acid arrow at the furthest target from you that is in range. You regain health points equal to all damage done by this spell."
+        },
+        {
+            "value": "You are convinced the floor is made of corrosive acid until the end of your next turn."
+        },
+        {
+            "value": "If you die within the next minute, your body turns into goo and immediately rebuilds itself as if by the Reincarnate spell."
+        },
+        {
+            "value": "Your body becomes an amorphous blob of slime and increases by one size category for the next minute."
+        },
+        {
+            "value": "Illusory sparks, fire, icy sheens, and acidic hisses occur at random within 10 feet of you for the next hour."
+        },
+        {
+            "value": "For the next minute all lightning, fire, cold, and acid damage heals you instead of damaging you."
+        },
+        {
+            "value": "For the next minute, all spells you cast have their damage type randomized using 1d4 to lightning, fire, cold, and acid damage types. This does not change the amount of damage done."
+        },
+        {
+            "value": "Create an elemental dead zone with a 15-foot radius, where no elements can be cast, created, or exist."
+        },
+        {
+            "value": "You cast Chaos Bolt."
+        },
+        {
+            "value": "You are transported to the Astral Plane until the end of your next turn, after which time you return to the space you previously occupied or the nearest unoccupied space if that space is occupied."
+        },
+        {
+            "value": "An Elemental chosen and controlled by the DM appears in an unoccupied space within 5 feet of you, then disappears I minute later."
+        },
+        {
+            "value": "All spells cast in the next minute trigger the wild magic table."
+        },
+        {
+            "value": "You regain all expended spell slots."
+        },
+        {
+            "value": "A massive weird controlled by the DM appears in a space within 5 feet of you, then disappears 1 minute later."
+        }
+    ]
+}

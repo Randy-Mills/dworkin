@@ -1,0 +1,28 @@
+{
+    "entities": [
+        {
+            "value": "Sunny: Features a hot, cloudless sky with an occasional light breeze.",
+            "weight": 20
+        },
+        {
+            "value": "Sunny with cloudy periods: A warm day with a light breeze.",
+            "weight": 24
+        },
+        {
+            "value": "Overcast: A warm day with cloud cover and an occasional light breeze.",
+            "weight": 17
+        },
+        {
+            "value": "Light Precipitation: Roll again for light precipitation. (WIP, eventually tool will handle reroll for you.)",
+            "weight": 12
+        },
+        {
+            "value": "Medium Precipitation: Roll again for medium precipitation. (WIP, eventually tool will handle reroll for you.)",
+            "weight": 13
+        },
+        {
+            "value": "Heavy Precipitation: Roll again for heavy precipitation. (WIP, eventually tool will handle reroll for you.)",
+            "weight": 9
+        }
+    ]
+}

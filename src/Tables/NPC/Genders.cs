@@ -1,28 +1,31 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using Dworkin.Interfaces;
 using Dworkin.Models;
+using Dworkin.Utils;
+using System.IO;
 
 namespace Dworkin.Tables.Genders
 {
     public class Genders : ITable
     {
-        private Percentile[] _table = {
-            new Percentile(0,500,"male"),
-            new Percentile(501,998,"female"),
-            new Percentile(999, 1000,"non-binary")
-        };
+        private const string _tableJson = "/Tables/TableJson/npc_genders.json";
 
         public Genders()
         {
-            Table = _table;
-            Max = _table[_table.Length-1].max;
+            MainTable = TableManager.BuildTable(_tableJson);
+            TableSize = GetTableSize(MainTable);
+            Table = TableManager.BuildTableFromJson(MainTable);
+            Max = TableSize;
         }
 
         public int Max { get; set; }
         public int Min { get; set; }
         public Percentile[] Table { get; set; }
-        public Table MainTable { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Table MainTable { get; set; }
+        public int TableSize { get; set; }
 
         public string Fetch(int position)
         {
@@ -33,6 +36,11 @@ namespace Dworkin.Tables.Genders
                     response = element.value;
             }
             return response;
+        }
+
+        private int GetTableSize(Table table)
+        {
+            return table.entities.Sum(item => item.weight);
         }
     }
 }

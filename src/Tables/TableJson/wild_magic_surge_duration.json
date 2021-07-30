@@ -1,0 +1,315 @@
+{
+    "entities": [
+        {
+            "value": "10d100 hours have passed."
+        },
+        {
+            "value": "1d4 turns have passed per level of the caster."
+        },
+        {
+            "value": "They have attained fluency in 1d4 additional languages."
+        },
+        {
+            "value": "They have attained fluency in one additional language."
+        },
+        {
+            "value": "They have been awarded a title by royalty."
+        },
+        {
+            "value": "They have been branded with a hot iron like a bull."
+        },
+        {
+            "value": "They have been formally pardoned by the a king."
+        },
+        {
+            "value": "They have been reduced to one hit point."
+        },
+        {
+            "value": "They have been resurrected."
+        },
+        {
+            "value": "They have been stabbed by a silver weapon."
+        },
+        {
+            "value": "They have been tried and imprisoned for heresy."
+        },
+        {
+            "value": "They have bested 10d10 warriors in single combat."
+        },
+        {
+            "value": "They have bought a hugely expensive home and burned it down."
+        },
+        {
+            "value": "They have broken every finger on one of their hands."
+        },
+        {
+            "value": "They have built 2d10 snowmen."
+        },
+        {
+            "value": "They have burned down their current home."
+        },
+        {
+            "value": "They have burned themself for 2d20 total hit points of fire damage."
+        },
+        {
+            "value": "They have carried a gallon of water from the sea to this spot."
+        },
+        {
+            "value": "They have carried a stone from this spot to the sea."
+        },
+        {
+            "value": "They have carved their full name in 10d10 different trees."
+        },
+        {
+            "value": "They have circumnavigated the globe without using magic to do so."
+        },
+        {
+            "value": "They have composed 3d4 sonnets."
+        },
+        {
+            "value": "They have cut off 1d4 fingers."
+        },
+        {
+            "value": "They have cut off their own ear."
+        },
+        {
+            "value": "They have destroyed every book that he owns."
+        },
+        {
+            "value": "They have destroyed every table within 1d4 miles."
+        },
+        {
+            "value": "They have destroyed their most prized possession."
+        },
+        {
+            "value": "They have dug a functioning and productive well on this spot."
+        },
+        {
+            "value": "They have eaten 1,000 gold pieces worth of gold."
+        },
+        {
+            "value": "They have eaten 1d4 pounds of soil."
+        },
+        {
+            "value": "They have eaten 1d4X their weight in squirrels."
+        },
+        {
+            "value": "They have eaten 2d6 pounds of cured leather."
+        },
+        {
+            "value": "They have eaten an entire, live chicken."
+        },
+        {
+            "value": "They have extracted 1d4 of their own teeth."
+        },
+        {
+            "value": "They have felled 3d6 trees older than he is."
+        },
+        {
+            "value": "They have forged a sword from meteoric iron."
+        },
+        {
+            "value": "They have found a lost city hidden in the desert."
+        },
+        {
+            "value": "They have founded a cult."
+        },
+        {
+            "value": "They have gained a level."
+        },
+        {
+            "value": "They have gone 10d10 days and nights without speaking."
+        },
+        {
+            "value": "They have gone 1d4 weeks without exposure to direct sunlight."
+        },
+        {
+            "value": "They have gone one full month without using magic or any magic items."
+        },
+        {
+            "value": "They have had a personal audience with 1d6 different deities."
+        },
+        {
+            "value": "They have hand-carved a marble statue of themself."
+        },
+        {
+            "value": "They have hidden a cursed ruby beneath a tall mountain."
+        },
+        {
+            "value": "They have imbibed 1d4 pints of lamp oil."
+        },
+        {
+            "value": "They have imbibed 1d8 pints of their own blood."
+        },
+        {
+            "value": "They have located and destroyed an artifact."
+        },
+        {
+            "value": "They have lost a level."
+        },
+        {
+            "value": "They have lost a total of 3d10 hit points due to burns from acid."
+        },
+        {
+            "value": "They have lost a total of 3d10 hit points due to electrical damage."
+        },
+        {
+            "value": "They have manually unearthed a diamond larger than their head."
+        },
+        {
+            "value": "They have married."
+        },
+        {
+            "value": "They have married, divorced, and remarried 1d4 times."
+        },
+        {
+            "value": "They have produced an heir."
+        },
+        {
+            "value": "They have razed the nearest wooden structure."
+        },
+        {
+            "value": "They have remained awake for 4d6 consecutive days and nights."
+        },
+        {
+            "value": "They have restored the nearest undead creature to life."
+        },
+        {
+            "value": "They have retrieved a particular gold coin from the bottom of the sea."
+        },
+        {
+            "value": "They have rid themself of all magic items."
+        },
+        {
+            "value": "They have rid the nearest town of mice and rats."
+        },
+        {
+            "value": "They have rolled less than their weight on 1d1000, one attempt per day."
+        },
+        {
+            "value": "They have rolled less than their Wisdom on 1d100, one attempt per day."
+        },
+        {
+            "value": "They have scaled the tallest mountian on the continent."
+        },
+        {
+            "value": "They have sharpened every blade within 1d10 miles."
+        },
+        {
+            "value": "They have shaved their head completely bald."
+        },
+        {
+            "value": "They have shed 2d10 pounds."
+        },
+        {
+            "value": "They have single-handedly dammed the nearest river."
+        },
+        {
+            "value": "They have slain 1d10 undead."
+        },
+        {
+            "value": "They have slain 1d6 kings."
+        },
+        {
+            "value": "They have spent 1,000,000 gold pieces with nothing to show for it."
+        },
+        {
+            "value": "They have spent 1d4 days and nights at the bottom of a deep well."
+        },
+        {
+            "value": "They have spent a night in a sty with at least 3d10 pigs."
+        },
+        {
+            "value": "They have spent a night in each of 2d6 dragons' lairs."
+        },
+        {
+            "value": "They have spent an entire night at the bottom of a lake."
+        },
+        {
+            "value": "They have spent an entire night naked and unprotected in snow."
+        },
+        {
+            "value": "They have spent an entire night sealed in a barrel."
+        },
+        {
+            "value": "They have spent an entire night up to their neck in offal."
+        },
+        {
+            "value": "They have stabbed themself with a weapon that he forged."
+        },
+        {
+            "value": "They have swallowed 4d10 gallons of water."
+        },
+        {
+            "value": "They have swallowed a pint of molten lead."
+        },
+        {
+            "value": "They have tattooed 10d100 cryptic runes on their skin."
+        },
+        {
+            "value": "They have thwarted an assassination attempt against the king."
+        },
+        {
+            "value": "They have triggered 1d4 additional wild surges."
+        },
+        {
+            "value": "They have visited both of the world's magnetic poles."
+        },
+        {
+            "value": "They have waded along the shores of 1d4 oceans."
+        },
+        {
+            "value": "They have walked 10d100 miles."
+        },
+        {
+            "value": "They have walked on the floor of the ocean."
+        },
+        {
+            "value": "They have walked on the surface of the moon."
+        },
+        {
+            "value": "They have walked the shores of hell."
+        },
+        {
+            "value": "They have woven a six foot length of rope from their own hair."
+        },
+        {
+            "value": "They have written their full name in 10d10 different books."
+        },
+        {
+            "value": "They unearth 1d4 pounds of gold."
+        },
+        {
+            "value": "Their next birthday."
+        },
+        {
+            "value": "Their child produces an heir."
+        },
+        {
+            "value": "One year and one day have passed."
+        },
+        {
+            "value": "The current king has died."
+        },
+        {
+            "value": "The next total lunar eclipse occurs."
+        },
+        {
+            "value": "They have performed an exorcism on a member of the royal family."
+        },
+        {
+            "value": "They have been bitten by 1d6 different lycanthropes."
+        },
+        {
+            "value": "2d10 minutes have passed.",
+            "weight": 5
+        },
+        {
+            "value": "2d10 hours have passed.",
+            "weight": 5
+        },
+        {
+            "value": "1d30 days have passed."
+        }
+    ]
+}

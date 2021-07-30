@@ -108,9 +108,10 @@ namespace Dworkin
             
             if (messageChannel)
                 await context.Channel.SendMessageAsync(_diceParser.Parse(response));
-            else
+            else {
                 await context.User.SendMessageAsync(response);
                 await context.Channel.SendMessageAsync("I have sent help to your PMs.");
+            }
         }
 
         private string Help()

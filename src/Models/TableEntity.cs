@@ -4,8 +4,8 @@ namespace Dworkin.Models
 {
     public class TableEntity
     {
-        public int weight { get; set; }
+        public int weight { get; set; } = 1;
         public string value { get; set; }
-        public Dictionary<string, string> tags { get; set; }
+        // public Dictionary<string, string> tags { get; set; }
     }
 }
