@@ -12,32 +12,11 @@ namespace Dworkin.Tables.WildMagic
 
         public WildMagic()
         {
-            MainTable = TableManager.BuildTable(_tableJson);
-            TableSize = GetTableSize(MainTable);
-            Table = TableManager.BuildTableFromJson(MainTable);
-            Max = TableSize;
+            Table = TableManager.BuildTable(_tableJson);
+            TableSize = TableManager.GetTableSize(Table);
         }
 
-        public int Max { get; set; }
-        public int Min { get; set; }
-        public Percentile[] Table { get; set; }
-        public Table MainTable { get; set; }
+        public Table Table { get; set; }
         public int TableSize { get; set; }
-
-        public string Fetch(int position)
-        {
-            var response = "";
-            foreach (Percentile element in Table)
-            {
-                if (Enumerable.Range(element.min,element.max).Contains(position))
-                    response = element.value;
-            }
-            return response.ToLower();
-        }
-
-        private int GetTableSize(Table table)
-        {
-            return table.entities.Sum(item => item.weight);
-        }
     }
 }

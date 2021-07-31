@@ -4,10 +4,7 @@ namespace Dworkin.Interfaces
 {
     public interface ITable
     {
-        int Max { get; set; }
-        int Min { get; set; }
-        Percentile[] Table { get; set; }
-        Table MainTable { get; set; }
-        string Fetch(int position);
+        Table Table { get; set; }
+        int TableSize { get; set; }
     }
 }

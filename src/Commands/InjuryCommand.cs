@@ -11,10 +11,36 @@ namespace Dworkin.Commands
         private Random _rng;
         private Logger _logger;
 
+        private ITable _tableAcidInjury;
+        private ITable _tableColdInjury;
+        private ITable _tableFireInjury;
+        private ITable _tableForceInjury;
+        private ITable _tableLightningInjury;
+        private ITable _tableNecroticInjury;
+        private ITable _tablePiercingInjury;
+        private ITable _tablePoisonInjury;
+        private ITable _tablePsychicInjury;
+        private ITable _tableRadiantInjury;
+        private ITable _tableSlashingInjury;
+        private ITable _tableThunderInjury;
+
         public InjuryCommand(Random rng, Logger logger)
         {
             _rng = rng;
             _logger = logger;
+
+            _tableAcidInjury = new AcidInjury();
+            _tableColdInjury = new ColdInjury();
+            _tableFireInjury = new FireInjury();
+            _tableForceInjury = new ForceInjury();
+            _tableLightningInjury = new LightningInjury();
+            _tableNecroticInjury = new NecroticInjury();
+            _tablePiercingInjury = new PiercingInjury();
+            _tablePoisonInjury = new PoisonInjury();
+            _tablePsychicInjury = new PsychicInjury();
+            _tableRadiantInjury = new RadiantInjury();
+            _tableSlashingInjury = new SlashingInjury();
+            _tableThunderInjury = new ThunderInjury();
         }
 
         public string Generate(string[] commands)
@@ -22,58 +48,58 @@ namespace Dworkin.Commands
             ITable table;
             if (Array.Exists(commands, element => element.ToLower() == "-acid"))
             {
-                table = new AcidInjury();
+                table = _tableAcidInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-cold"))
             {
-                table = new ColdInjury();
+                table = _tableColdInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-fire"))
             {
-                table = new FireInjury();
+                table = _tableFireInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-force"))
             {
-                table = new ForceInjury();
+                table = _tableForceInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-lightning"))
             {
-                table = new LightningInjury();
+                table = _tableLightningInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-necrotic"))
             {
-                table = new NecroticInjury();
+                table = _tableNecroticInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-piercing"))
             {
-                table = new PiercingInjury();
+                table = _tablePiercingInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-poison"))
             {
-                table = new PoisonInjury();
+                table = _tablePoisonInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-psychic"))
             {
-                table = new PsychicInjury();
+                table = _tablePsychicInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-radiant"))
             {
-                table = new RadiantInjury();
+                table = _tableRadiantInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-slashing"))
             {
-                table = new SlashingInjury();
+                table = _tableSlashingInjury;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-thunder"))
             {
-                table = new ThunderInjury();
+                table = _tableThunderInjury;
             }
             else
             {
                 return $"Provided injury type does not correspond to the available list of options.";
             }
 
-            var randomValue = _rng.Next(table.Max);
+            var randomValue = _rng.Next(table.TableSize);
 
             Regex re = new Regex(@"\d+");
             foreach (string element in commands)
@@ -85,10 +111,10 @@ namespace Dworkin.Commands
                 }
             }
 
-            if (randomValue > table.Max)
-                return $"Provided value is out of range. Selected table has {table.Max} rows.";
+            if (randomValue > table.TableSize)
+                return $"Provided value is out of range. Selected table has {table.TableSize} rows.";
 
-            return $">>> [{randomValue}]: {table.Fetch(randomValue)}";
+            return $">>> [{randomValue}]: {TableManager.Fetch(table, randomValue)}";
         }
     }
 }

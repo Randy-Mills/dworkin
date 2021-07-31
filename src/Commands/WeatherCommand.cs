@@ -11,10 +11,20 @@ namespace Dworkin.Commands
         private Random _rng;
         private Logger _logger;
 
+        private ITable _tableLightPrecipitation;
+        private ITable _tableMediumPrecipitation;
+        private ITable _tableHeavyPrecipitation;
+        private ITable _tableTemperateWeather;
+
         public WeatherCommand(Random rng, Logger logger)
         {
             _rng = rng;
             _logger = logger;
+
+            _tableLightPrecipitation = new LightPrecipitation();
+            _tableMediumPrecipitation = new MediumPrecipitation();
+            _tableHeavyPrecipitation = new HeavyPrecipitation();
+            _tableTemperateWeather = new TemperateWeather();
         }
 
         public string Generate(string[] commands)
@@ -22,22 +32,22 @@ namespace Dworkin.Commands
             ITable table;
             if (Array.Exists(commands, element => element.ToLower() == "-light"))
             {
-                table = new LightPrecipitation();
+                table = _tableLightPrecipitation;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-medium"))
             {
-                table = new MediumPrecipitation();
+                table = _tableMediumPrecipitation;
             }
             else if (Array.Exists(commands, element => element.ToLower() == "-heavy"))
             {
-                table = new HeavyPrecipitation();
+                table = _tableHeavyPrecipitation;
             }
             else
             {
-                table = new TemperateWeather();
+                table = _tableTemperateWeather;
             }
 
-            var randomValue = _rng.Next(table.Max);
+            var randomValue = _rng.Next(table.TableSize);
 
             Regex re = new Regex(@"\d+");
             foreach (string element in commands)
@@ -49,10 +59,10 @@ namespace Dworkin.Commands
                 }
             }
 
-            if (randomValue > table.Max)
-                return $"Provided value is out of range. Selected table has {table.Max} rows.";
+            if (randomValue > table.TableSize)
+                return $"Provided value is out of range. Selected table has {table.TableSize} rows.";
             
-            return $">>> [{randomValue}]: {table.Fetch(randomValue)}";
+            return $">>> [{randomValue}]: {TableManager.Fetch(table, randomValue)}";
         }
     }
 }

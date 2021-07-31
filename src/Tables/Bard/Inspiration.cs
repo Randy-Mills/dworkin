@@ -1,19 +1,16 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using Dworkin.Interfaces;
 using Dworkin.Models;
 using Dworkin.Utils;
-using System.IO;
 
-namespace Dworkin.Tables.Genders
+namespace Dworkin.Tables.Bard
 {
-    public class Genders : ITable
+    public class InspirationBard : ITable
     {
-        private const string _tableJson = "/Tables/TableJson/npc_genders.json";
+        private const string _tableJson = "/Tables/TableJson/bard_inspiration.json";
 
-        public Genders()
+        public InspirationBard()
         {
             Table = TableManager.BuildTable(_tableJson);
             TableSize = TableManager.GetTableSize(Table);

@@ -1,19 +1,16 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text.Json;
 using Dworkin.Interfaces;
 using Dworkin.Models;
 using Dworkin.Utils;
-using System.IO;
 
-namespace Dworkin.Tables.Genders
+namespace Dworkin.Tables.Injury
 {
-    public class Genders : ITable
+    public class SlashingInjury : ITable
     {
-        private const string _tableJson = "/Tables/TableJson/npc_genders.json";
+        private const string _tableJson = "/Tables/TableJson/injury_slashing.json";
 
-        public Genders()
+        public SlashingInjury()
         {
             Table = TableManager.BuildTable(_tableJson);
             TableSize = TableManager.GetTableSize(Table);

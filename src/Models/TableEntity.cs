@@ -6,6 +6,5 @@ namespace Dworkin.Models
     {
         public int weight { get; set; } = 1;
         public string value { get; set; }
-        // public Dictionary<string, string> tags { get; set; }
     }
 }

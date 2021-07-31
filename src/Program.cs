@@ -6,6 +6,7 @@ using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Dworkin.Commands;
+using Dworkin.Interfaces;
 using Dworkin.Utils;
 
 namespace Dworkin
@@ -18,6 +19,13 @@ namespace Dworkin
 
         private DiceParser _diceParser;
 
+        private IGenerator _weatherCommand;
+        private IGenerator _wildSurgeCommand;
+        private IGenerator _npcCommand;
+        private IGenerator _injuryCommand;
+        private IGenerator _madnessCommand;
+        private IGenerator _bardCommand;
+
         public static void Main(string[] args)
             => new Program().MainAsync().GetAwaiter().GetResult();
 
@@ -27,6 +35,13 @@ namespace Dworkin
             _rng = new Random();
             _logger = new Logger();
             _diceParser = new DiceParser(_rng);
+
+            _weatherCommand = new WeatherCommand(_rng, _logger);
+            _wildSurgeCommand = new WildSurgeCommand(_rng, _logger);
+            _npcCommand = new NPCCommand(_rng, _logger);
+            _injuryCommand = new InjuryCommand(_rng, _logger);
+            _madnessCommand = new MadnessCommand(_rng, _logger);
+            _bardCommand = new BardCommand(_rng, _logger);
 
             _client.Log += _logger.Log;
 
@@ -77,29 +92,23 @@ namespace Dworkin
                     break;
                 case "weather":
                 case "w":
-                    WeatherCommand wc = new WeatherCommand(_rng, _logger);
-                    response = wc.Generate(commands);
+                    response = _weatherCommand.Generate(commands);
                     break;
                 case "wildsurge":
                 case "ws":
-                    WildSurgeCommand wcs = new WildSurgeCommand(_rng, _logger);
-                    response = wcs.Generate(commands);
+                    response = _wildSurgeCommand.Generate(commands);
                     break;
                 case "npc":
-                    NPCCommand npcc = new NPCCommand(_rng, _logger);
-                    response = npcc.Generate(commands);
+                    response = _npcCommand.Generate(commands);
                     break;
                 case "injury":
-                    InjuryCommand injury = new InjuryCommand(_rng, _logger);
-                    response = injury.Generate(commands);
+                    response = _injuryCommand.Generate(commands);
                     break;
                 case "madness":
-                    MadnessCommand madness = new MadnessCommand(_rng, _logger);
-                    response = madness.Generate(commands);
+                    response = _madnessCommand.Generate(commands);
                     break;
                 case "bard":
-                    BardCommand bard = new BardCommand(_rng, _logger);
-                    response = bard.Generate(commands);
+                    response = _bardCommand.Generate(commands);
                     break;
                 default:
                     response += "Command not recognized";

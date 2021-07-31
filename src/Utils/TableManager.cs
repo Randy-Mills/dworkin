@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 using Dworkin.Models;
+using Dworkin.Interfaces;
 using System.IO;
 
 namespace Dworkin.Utils {
@@ -18,16 +20,31 @@ namespace Dworkin.Utils {
             return table;
         }
 
-        public static Percentile[] BuildTableFromJson(Table table)
+        public static int GetTableSize(Table table)
         {
-            var temp = new List<Percentile>();
-            var pos = 0;
-            foreach(var entity in table.entities)
+            var sum = 0;
+            foreach (TableEntity te in table.entities)
             {
-                temp.Add(new Percentile(pos, pos+entity.weight, entity.value));
-                pos = pos+entity.weight;
+                sum = sum + te.weight;
             }
-            return temp.ToArray();
+            return sum;
+        }
+
+        public static string Fetch(ITable table, int position)
+        {
+            var response = "";
+            var pos = 0;
+            foreach (TableEntity te in table.Table.entities)
+            {
+                if (Enumerable.Range(pos,pos+te.weight).Contains(position))
+                {
+                    response = te.value;
+                    break;
+                }
+
+                pos = pos+te.weight;
+            }
+            return response;
         }
     }
 }

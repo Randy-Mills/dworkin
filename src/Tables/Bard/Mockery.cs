@@ -7,13 +7,13 @@ using Dworkin.Models;
 using Dworkin.Utils;
 using System.IO;
 
-namespace Dworkin.Tables.Genders
+namespace Dworkin.Tables.Bard
 {
-    public class Genders : ITable
+    public class MockeryBard : ITable
     {
-        private const string _tableJson = "/Tables/TableJson/npc_genders.json";
+        private const string _tableJson = "/Tables/TableJson/bard_mockery.json";
 
-        public Genders()
+        public MockeryBard()
         {
             Table = TableManager.BuildTable(_tableJson);
             TableSize = TableManager.GetTableSize(Table);
