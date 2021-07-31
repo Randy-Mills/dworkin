@@ -1,0 +1,31 @@
+{
+    "entities": [
+        {
+            "value": "*Brain Injury.* You have suffered a brain injury. You have disadvantage on Intelligence, Wisdom, and Charisma checks, as well as Intelligence, Wisdom, and Charisma saving throws. If you fail a saving throw against bludgeoning damage, force damage, or psychic damage, you are also stunned until the end of your next turn. Magic such as the regenerate spell can restore your full brain function."
+        },
+        {
+            "value": "*Explosive Grounding of the Hand.* You lose a hand. You can no longer hold anything with two hands, and you can hold only a single object at a time. Magic such as the regenerate spell can restore the lost appendage."
+        },
+        {
+            "value": "*Explosive Grounding of the Foot.* You lose a foot. Your speed on foot is halved, and you must use a cane or crutch to move unless you have a peg leg or other prosthesis. You fall prone after using the Dash action. You have disadvantage on Dexterity checks made to balance. Magic such as the regenerate spell can restore the lost appendage."
+        },
+        {
+            "value": "*Kidney Failure.* When you complete a long rest, you must succeed at a Constitution saving throw DC 15 or gain the poisoned condition until you complete a long rest. Magic such as the regenerate spell can cure your kidney failure. Alternatively, someone can tend to the kidney failure and make a DC 15 Wisdom (Medicine) check once every week. After ten successes, the kidney failure is resolved."
+        },
+        {
+            "value": "*Arc Flash.* Roll on the fire table."
+        },
+        {
+            "value": "*Cardiac Injury.* You gain a level of exhaustion which cannot be removed by normal means. If you fail a saving throw against fear or fear effects, you gain another level of exhaustion that can be removed by normal means. Magic such as the regenerate spell can heal your cardiac damage."
+        },
+        {
+            "value": "*Skeletal Muscle Breakdown.* You have disadvantage on Strength checks and Strength saving throws. Magic such as the regenerate spell can cure your muscle breakdown. Alternatively, it will resolve on its own in 6 weeks."
+        },
+        {
+            "value": "*Muscle Spasms.* You have disadvantage on Dexterity checks. Magical healing cures your muscle spasms. Alternatively, they will resolve on their own in 2 weeks."
+        },
+        {
+            "value": "*Flash Burns.* You have superficial burns. You turn red as a lobster, but otherwise suffer no mechanical effects. Magical healing cures your flash burns. Alternatively, they will heal on their own in 2 weeks."
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "entities": [
+        {
+            "value": "male",
+            "weight": 2
+        },
+        {
+            "value": "female",
+            "weight": 2
+        },
+        {
+            "value": "non-binary"
+        }
+    ]
+}

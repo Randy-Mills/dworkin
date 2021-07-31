@@ -1,0 +1,46 @@
+{
+    "entities": [
+        {
+            "value": "*Flaw:* “Being drunk keeps me sane.”",
+            "weight": 3
+        },
+        {
+            "value": "*Flaw:* “I keep whatever I find.”",
+            "weight": 2
+        },
+        {
+            "value": "*Flaw:* “I try to become more like someone else I know—adopting his or her style of dress, mannerisms, and name.”"
+        },
+        {
+            "value": "*Flaw:* “I must bend the truth, exaggerate, or outright lie to be interesting to other people.”"
+        },
+        {
+            "value": "*Flaw:* “Achieving my goal is the only thing of interest to me, and I’ll ignore everything else to pursue it.”",
+            "weight": 2
+        },
+        {
+            "value": "*Flaw:* “I find it hard to care about anything that goes on around me.”"
+        },
+        {
+            "value": "*Flaw:* “I don’t like the way people judge me all the time.”"
+        },
+        {
+            "value": "*Flaw:* “I am the smartest, wisest, strongest, fastest, and most beautiful person I know.”",
+            "weight": 3
+        },
+        {
+            "value": "*Flaw:* “I am convinced that powerful enemies are hunting me, and their agents are everywhere I go. I am sure they’re watching me all the time.”",
+            "weight": 2
+        },
+        {
+            "value": "*Flaw:* “There’s only one person I can trust. And only I can see this Special friend.”"
+        },
+        {
+            "value": "*Flaw:* “I can’t take anything seriously. The more serious the situation, the funnier I find it.”",
+            "weight": 2
+        },
+        {
+            "value": "*Flaw:* “I’ve discovered that I really like killing people.”"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+    "entities": [
+        {
+            "value": "Light Fog: Reduces visibility to three-quarters of the normal ranges, resulting in a –1 penalty on Perception checks and a –1 penalty on ranged attacks. Light fog typically occurs early in the day, late in the day, or sometimes at night, but the heat of the midday usually burns it away. Light fog occurs only when there is no or light wind.",
+            "weight": 4
+        },
+        {
+            "value": "Medium Fog: Reduces visibility ranges by half, resulting in a –2 penalty on Perception checks and a –2 penalty on ranged attacks. Medium fog typically occurs early in the day, late in the day, or sometimes at night, but the heat of the midday usually burns it away. Medium fog occurs only when there is no or light wind.",
+            "weight": 4
+        },
+        {
+            "value": "Drizzle: It automatically extinguishes tiny unprotected flames (candles and the like, but not torches).",
+            "weight": 6
+        },
+        {
+            "value": "Light Rain:  Reduces visibility to three-quarters of the normal range, imposing a –1 penalty on Perception checks. It automatically extinguishes tiny unprotected flames (candles and the like, but not torches).",
+            "weight": 5
+        }
+    ]
+}

@@ -1,37 +1,25 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
-using Generator.Models;
-using Toolkit.Generator;
+using System.Text.Json;
+using Dworkin.Interfaces;
+using Dworkin.Models;
+using Dworkin.Utils;
+using System.IO;
 
-namespace Generator.Tables.Genders
+namespace Dworkin.Tables.Genders
 {
     public class Genders : ITable
     {
-        private Percentile[] _table = {
-            new Percentile(0,500,"male"),
-            new Percentile(501,998,"female"),
-            new Percentile(999, 1000,"non-binary")
-        };
+        private const string _tableJson = "/Tables/TableJson/npc_genders.json";
 
         public Genders()
         {
-            Table = _table;
-            Max = _table[_table.Length-1].max;
+            Table = TableManager.BuildTable(_tableJson);
+            TableSize = TableManager.GetTableSize(Table);
         }
 
-        public int Max { get; set; }
-        public int Min { get; set; }
-        public Percentile[] Table { get; set; }
-
-        public string Fetch(int position)
-        {
-            var response = "";
-            foreach (Percentile element in Table)
-            {
-                if (Enumerable.Range(element.min,element.max).Contains(position))
-                    response = element.value;
-            }
-            return response;
-        }
+        public Table Table { get; set; }
+        public int TableSize { get; set; }
     }
 }

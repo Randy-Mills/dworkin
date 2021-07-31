@@ -1,4 +1,4 @@
-namespace Generator.Models
+namespace Dworkin.Models
 {
     public class Percentile
     {

@@ -1,0 +1,154 @@
+{
+    "entities": [
+        {
+            "value": "You gain the ability to consume your own fingernails as if they were the fruit of a goodberry spell."
+        },
+        {
+            "value": "Your hair turns bone white."
+        },
+        {
+            "value": "Over the next 2d6 days you grow mouths on the palms of each hand. A remove curse spell can end this effect."
+        },
+        {
+            "value": "For the next 2d6 days, horrid pustules grow on your face giving you disadvantage on all Charisma checks."
+        },
+        {
+            "value": "For the next hour, you can comprehend all languages but can only speak Abyssal."
+        },
+        {
+            "value": "Summon eight swarms of CR 1/4 rats."
+        },
+        {
+            "value": "For the next minute, all non-magic organic things you touch rot, metal rusts, and food spoils."
+        },
+        {
+            "value": "You cast animate dead on the nearest corpse within a mile."
+        },
+        {
+            "value": "You see all reflections of your self as if you were a rotted corpse. A remove curse spell can end this effect."
+        },
+        {
+            "value": "You become suddenly aware of the horrible truth... if you tear out and consume your left eye you will regain all expended sorcery points."
+        },
+        {
+            "value": "You cast inflict wounds on yourself. The next spell you cast deals maximum damage."
+        },
+        {
+            "value": "For 1d4 rounds maggots fall from your mouth with you try to speak, preventing you from talking."
+        },
+        {
+            "value": "You cast arms of Hadar as a 1st level spell. You may increase its level and take 1d4 necrotic damage for each rank you increase it."
+        },
+        {
+            "value": "You are chilled and your teeth chatter uncontrollably, giving you disadvantage on concentration next hour or until warmed up."
+        },
+        {
+            "value": "For an hour, your skin grows dry and scaly. Your AC cannot be below 16 for this time."
+        },
+        {
+            "value": "You cast misty step bursting into a flock of ravens that reform at the spell's chosen location."
+        },
+        {
+            "value": "You cast false life on yourself."
+        },
+        {
+            "value": "For the next minute your face becomes pale, your lips blue and your breath white. You may cast ray of frost as a bonus action."
+        },
+        {
+            "value": "Over the next 2d6 days your ears, nose and lips rot off, giving you disadvantage to persuasion checks and advantage to intimidate checks."
+        },
+        {
+            "value": "The next time you sleep or meditate, you are afflicted with horrible nightmares or visions and take 1d6 psychic damage."
+        },
+        {
+            "value": "You sprout a twisted and useless malformed arm from your side."
+        },
+        {
+            "value": "You cast grasping vine, it summons a tentacle instead."
+        },
+        {
+            "value": "Over the next 2d6 days you grow a stubby, fleshy vestigial tail and wings. You can hack them off for 3d6 damage."
+        },
+        {
+            "value": "For the next minute, you may choose to cast spells with casting times of 1 action as if their casting time were 1 bonus action. If you do so you bleed from your nose and take 1d4 psychic damage."
+        },
+        {
+            "value": "Over the next 2d6 days, your left arm becomes gelatinous and flexible until it becomes a tentacle."
+        },
+        {
+            "value": "You and all creatures within 30' are affected by fleshrot as if by the contagion spell."
+        },
+        {
+            "value": "Over the next 2d6 days you grow a face on the back of your head that is a warped and useless copy of your own."
+        },
+        {
+            "value": "For the next 2d6 days you smell like rotting meat. The smell worsens and fades over this time."
+        },
+        {
+            "value": "Your touch becomes painful to others, like the sting of nettles."
+        },
+        {
+            "value": "Worms erupt from your flesh and knit it together. You gain 2d10 temporary hit points."
+        },
+        {
+            "value": "Your skin becomes semi-translucent making your veins and muscles visible."
+        },
+        {
+            "value": "For 1d4 rounds your eyes go milk white and you are blind."
+        },
+        {
+            "value": "You become frightened for 1d4 rounds."
+        },
+        {
+            "value": "A ghoul under your control rises from the earth. It ceases to be controlled by you in 1d4 hours."
+        },
+        {
+            "value": "Your teeth grow longer, sharper, and more canine. You pant when you breath. A remove curse spell can end this effect."
+        },
+        {
+            "value": "For the next hour you cast speak with dead on all corpses you touch."
+        },
+        {
+            "value": "All creatures in a 30' cone in front of you are frightened. Your eyes become black for a round."
+        },
+        {
+            "value": "You cast dissonant whispers on yourself."
+        },
+        {
+            "value": "For the next 2d6 days you feel compelled to hack up the body of any creature you kill. Take 1d4 psychic damage each time you kill a creature and do not do this within ten minutes."
+        },
+        {
+            "value": "For the next minute, each time you lose health, a CR 1/4 swarm of spiders crawls from the wound under your control."
+        },
+        {
+            "value": "You no longer age, require food, drink, nor air."
+        },
+        {
+            "value": "For an hour your tongue becomes a centipede. You may speak all languages."
+        },
+        {
+            "value": "You cast detect thoughts. This lasts for one hour and you do not need to concentrate to maintain the effect. Each time you use your action to focus it, take 1d4 psychic damage."
+        },
+        {
+            "value": "You rapidly gain 2d6 pounds and an equal number of temporary hit points."
+        },
+        {
+            "value": "You cast darkness centered on yourself."
+        },
+        {
+            "value": "You cast hunger of Hadar centered on yourself. You automatically succeed on the concentration check and cannot choose to end it."
+        },
+        {
+            "value": "You deal 1d10 necrotic damage to all creatures within 30' of you and gain the much health."
+        },
+        {
+            "value": "The next time you are damaged by necrotic damage, you are instead of healed that much health."
+        },
+        {
+            "value": "You age 1d4 years and regain all expended sorcery points."
+        },
+        {
+            "value": "Reroll, you may spend 1d4 health to move one space up or down this table. You may pay this multiple times to move multiple spaces."
+        }
+    ]
+}

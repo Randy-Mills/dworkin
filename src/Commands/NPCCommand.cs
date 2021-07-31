@@ -2,28 +2,36 @@ using System;
 using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Generator.Tables.AppearanceAdjectives;
-using Generator.Tables.Genders;
-using Generator.Tables.Races;
-using Generator.Utils;
-using Toolkit.Generator;
+using Dworkin.Interfaces;
+using Dworkin.Tables.AppearanceAdjectives;
+using Dworkin.Tables.Genders;
+using Dworkin.Tables.Races;
+using Dworkin.Utils;
 
-namespace Generator.Commands
+namespace Dworkin.Commands
 {
     public class NPCCommand : IGenerator
     {
         private Random _rng;
         private Logger _logger;
 
+        private ITable _tableGenders;
+        private ITable _tableAppearanceAdjectives;
+        private ITable _tableRaces;
+
         public NPCCommand(Random rng, Logger logger)
         {
             _rng = rng;
             _logger = logger;
+
+            _tableGenders = new Genders();
+            _tableAppearanceAdjectives = new AppearanceAdjectives();
+            _tableRaces = new Races();
         }
 
         private string GenerateFromATable(ITable table, string[] commands)
         {
-            var randomValue = _rng.Next(table.Max);
+            var randomValue = _rng.Next(table.TableSize);
 
             Regex re = new Regex(@"\d+");
             foreach (string element in commands)
@@ -35,10 +43,10 @@ namespace Generator.Commands
                 }
             }
 
-            if (randomValue > table.Max || randomValue < table.Min)
-                return $"Provided value is out of range. Selected table has {table.Max} rows.";
+            if (randomValue > table.TableSize || randomValue < 0)
+                return $"Provided value is out of range. Selected table has {table.TableSize} rows.";
 
-            return $"{table.Fetch(randomValue)}";
+            return $"{TableManager.Fetch(table, randomValue)}";
         }
 
         private async Task<string> GenerateName(string uri)
@@ -53,9 +61,9 @@ namespace Generator.Commands
 
         public string Generate(string[] commands)
         {
-            ITable genderTable = new Genders();
-            ITable appearanceAdjectivesTable = new AppearanceAdjectives();
-            ITable racesTable = new Races();
+            ITable genderTable = _tableGenders;
+            ITable appearanceAdjectivesTable = _tableAppearanceAdjectives;
+            ITable racesTable = _tableRaces;
 
             string gender = GenerateFromATable(genderTable, commands);
             string name = GenerateName($"https://namey.muffinlabs.com/name.json?type={gender}&with_surname=true&frequency=all").Result;

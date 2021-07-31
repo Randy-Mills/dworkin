@@ -1,0 +1,42 @@
+{
+    "entities": [
+        {
+            "value": "The character retreats into his or her mind and becomes paralyzed. The effect ends after 1d10 minutes or if the character takes any damage.",
+            "weight": 4
+        },
+        {
+            "value": "The character becomes incapacitated and spends the duration screaming, laughing, or weeping. Lasts for 1d10 minutes.",
+            "weight": 2
+        },
+        {
+            "value": "The character becomes frightened and must use his or her action and movement each round to flee from the source of the fear. Lasts for 1d10 minutes.",
+            "weight": 2
+        },
+        {
+            "value": "The character begins babbling and is incapable of normal speech or spellcasting. Lasts for 1d10 minutes.",
+            "weight": 2
+        },
+        {
+            "value": "The character must use his or her action each round to attack the nearest creature. Lasts for 1d10 minutes.",
+            "weight": 2
+        },
+        {
+            "value": "The character experiences vivid hallucinations and has disadvantage on ability checks. Lasts for 1d10 minutes.",
+            "weight": 2
+        },
+        {
+            "value": "The character does whatever anyone tells him or her to do that isn’t obviously self­ destructive. Lasts for 1d10 minutes."
+        },
+        {
+            "value": "The character experiences an overpowering urge to eat something strange such as dirt, slime, or offal. Lasts for 1d10 minutes."
+        },
+        {
+            "value": "The character is stunned. Lasts for 1d10 minutes.",
+            "weight": 2
+        },
+        {
+            "value": "The character falls unconscious. Lasts for 1d10 minutes.",
+            "weight": 2
+        }
+    ]
+}

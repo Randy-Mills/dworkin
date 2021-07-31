@@ -1,0 +1,31 @@
+{
+    "entities": [
+        {
+            "value": "*Blindness.* Your eyes are destroyed; you gain the blinded condition. Magic such as the regenerate spell can restore your sight."
+        },
+        {
+            "value": "*Partial Blindness.* Your eyes are damaged; you have disadvantage on Wisdom (Perception) checks that rely on sight and on ranged attack rolls. Magic such as the regenerate spell can heal the damage to your eyes. If you have already suffered partial blindness, you're blinded."
+        },
+        {
+            "value": "*Destroyed Hand.* You can no longer hold anything with two hands, and you can hold only a single object at a time. Magic such as the regenerate spell can restore the lost appendage."
+        },
+        {
+            "value": "*Destroyed Foot or Leg.* Your speed on foot is halved, and you must use a crutch or cane to move. You fall prone after using the Dash action. You have disadvantage on Dexterity checks made to balance. Magic such as the regenerate spell can restore the damaged appendage."
+        },
+        {
+            "value": "*Major Neuralgia.* You are in constant pain from nerve damage. Whenever you attempt an action in combat, you must make a DC 15 Constitution saving throw. On a failed save, you lose your action and can't use reactions until the start of your next turn.Magical healing of 6th level or higher, such as heal and regenerate, cures the neuralgia, or if you spend twenty days doing nothing but resting it resolves on its own."
+        },
+        {
+            "value": "*Minor Neuralgia.* You are in constant pain from nerve damage. Whenever you attempt an action in combat, you must make a DC 10 Constitution saving throw. On a failed save, you lose your action and can't use reactions until the start of your next turn.Magical healing of 6th level or higher, such as heal and regenerate, cures the neuralgia, or if you spend ten days doing nothing but resting it resolves on its own."
+        },
+        {
+            "value": "*Horrible Disfigurement.* You have acid burns to the extent that the scars can't be easily concealed. You have disadvantage on Charisma (Persuasion) checks and advantage on Charisma (Intimidation) checks. Magical healing of 6th level or higher, such as heal and regenerate, removes the acid burn scar."
+        },
+        {
+            "value": "*Blisters.* You have severe blisters. You have disadvantage on Dexterity checks. The blisters heal if you receive magical healing. Alternatively, someone can tend to the blisters and make a DC 15 Wisdom (Medicine) check once every 24 hours. After seven successes, the blisters heal."
+        },
+        {
+            "value": "*Minor Disfigurement.* You have acid burn scars, but they don’t have any adverse effect. Magical healing of 6th level or higher, such as heal and regenerate, removes the acid burn scars."
+        }
+    ]
+}
