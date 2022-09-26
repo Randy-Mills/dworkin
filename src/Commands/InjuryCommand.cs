@@ -1,11 +1,15 @@
 using System;
-using System.Text.RegularExpressions;
 using Dworkin.Interfaces;
 using Dworkin.Tables.Injury;
 using Dworkin.Utils;
+using Discord;
+using Discord.WebSocket;
 
 namespace Dworkin.Commands
 {
+    using System.Collections.Generic;
+    using System.Text.RegularExpressions;
+
     public class InjuryCommand : IGenerator
     {
         private Random _rng;
@@ -43,54 +47,91 @@ namespace Dworkin.Commands
             _tableThunderInjury = new ThunderInjury();
         }
 
-        public string Generate(string[] commands)
+        public SlashCommandBuilder BuildCommandWithOptions()
         {
+            var commandBuilder = new SlashCommandBuilder();
+            commandBuilder.WithName("injury");
+            commandBuilder.WithDescription("Generate a random injury");
+            
+            commandBuilder.AddOption(new SlashCommandOptionBuilder()
+                .WithName("injury-type")
+                .WithDescription("What type of injury should we generate?")
+                .WithRequired(true)
+                .AddChoice("Acid", "acid")
+                .AddChoice("Cold", "cold")
+                .AddChoice("Fire", "fire")
+                .AddChoice("Force", "force")
+                .AddChoice("Lightning", "lightning")
+                .AddChoice("Necrotic", "necrotic")
+                .AddChoice("Piercing", "piercing")
+                .AddChoice("Poison", "poison")
+                .AddChoice("Psychic", "psychic")
+                .AddChoice("Radiant", "radiant")
+                .AddChoice("Slashing", "slashing")
+                .AddChoice("Thunder", "thunder")
+                .WithType(ApplicationCommandOptionType.String)
+            );
+            
+            return commandBuilder;
+        }
+
+        public string Generate(SocketSlashCommandData data)
+        {
+            List<string> commands = new List<string>();
+            
+            foreach (SocketSlashCommandDataOption option in data.Options)
+            {
+                commands.Add(option.Value.ToString());
+            }
+            
+            var injuryTypeArg = commands[0];
+
             ITable table;
-            if (Array.Exists(commands, element => element.ToLower() == "-acid"))
+            if (injuryTypeArg == "acid")
             {
                 table = _tableAcidInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-cold"))
+            else if (injuryTypeArg == "cold")
             {
                 table = _tableColdInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-fire"))
+            else if (injuryTypeArg == "fire")
             {
                 table = _tableFireInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-force"))
+            else if (injuryTypeArg == "force")
             {
                 table = _tableForceInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-lightning"))
+            else if (injuryTypeArg == "lightning")
             {
                 table = _tableLightningInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-necrotic"))
+            else if (injuryTypeArg == "necrotic")
             {
                 table = _tableNecroticInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-piercing"))
+            else if (injuryTypeArg == "piercing")
             {
                 table = _tablePiercingInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-poison"))
+            else if (injuryTypeArg == "poison")
             {
                 table = _tablePoisonInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-psychic"))
+            else if (injuryTypeArg == "psychic")
             {
                 table = _tablePsychicInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-radiant"))
+            else if (injuryTypeArg == "radiant")
             {
                 table = _tableRadiantInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-slashing"))
+            else if (injuryTypeArg == "slashing")
             {
                 table = _tableSlashingInjury;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-thunder"))
+            else if (injuryTypeArg == "thunder")
             {
                 table = _tableThunderInjury;
             }
@@ -98,22 +139,24 @@ namespace Dworkin.Commands
             {
                 return $"Provided injury type does not correspond to the available list of options.";
             }
-
+        
             var randomValue = _rng.Next(table.TableSize);
-
-            Regex re = new Regex(@"\d+");
-            foreach (string element in commands)
-            {
-                if (re.IsMatch(element))
-                {
-                    randomValue = Int32.Parse(element);
-                    break;
-                }
-            }
-
-            if (randomValue > table.TableSize)
-                return $"Provided value is out of range. Selected table has {table.TableSize} rows.";
-
+            
+            // Temporarily disable the direct lookup option for now - sam - sept 21, 2022
+            
+            // Regex re = new Regex(@"\d+");
+            // foreach (string element in commands)
+            // {
+            //     if (re.IsMatch(element))
+            //     {
+            //         randomValue = Int32.Parse(element);
+            //         break;
+            //     }
+            // }
+            //
+            // if (randomValue > table.TableSize)
+            //     return $"Provided value is out of range. Selected table has {table.TableSize} rows.";
+        
             return $">>> [{randomValue}]: {TableManager.Fetch(table, randomValue)}";
         }
     }

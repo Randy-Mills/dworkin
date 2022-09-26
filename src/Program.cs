@@ -3,7 +3,6 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Discord;
-using Discord.Commands;
 using Discord.WebSocket;
 using Dworkin.Commands;
 using Dworkin.Interfaces;
@@ -17,24 +16,22 @@ namespace Dworkin
         private Random _rng;
         private Logger _logger;
 
-        private DiceParser _diceParser;
-
         private IGenerator _weatherCommand;
         private IGenerator _wildSurgeCommand;
         private IGenerator _npcCommand;
         private IGenerator _injuryCommand;
         private IGenerator _madnessCommand;
         private IGenerator _bardCommand;
+        private IGenerator _helpCommand;
 
         public static void Main(string[] args)
             => new Program().MainAsync().GetAwaiter().GetResult();
 
-        public async Task MainAsync()
+        private async Task MainAsync()
         {
             _client = new DiscordSocketClient();
             _rng = new Random();
             _logger = new Logger();
-            _diceParser = new DiceParser(_rng);
 
             _weatherCommand = new WeatherCommand(_rng, _logger);
             _wildSurgeCommand = new WildSurgeCommand(_rng, _logger);
@@ -42,127 +39,91 @@ namespace Dworkin
             _injuryCommand = new InjuryCommand(_rng, _logger);
             _madnessCommand = new MadnessCommand(_rng, _logger);
             _bardCommand = new BardCommand(_rng, _logger);
+            _helpCommand = new HelpCommand(_logger);
 
             _client.Log += _logger.Log;
 
             var token = File.ReadLines("token.txt").First();
+            
+            _client.SlashCommandExecuted += _onSlashCommandReceived;
 
-            _client.MessageUpdated += MessageUpdated;
-            _client.MessageReceived += OnMessageReceivedAsync;
-            _client.Ready += () => 
-            {
-                Console.WriteLine("Bot is connected!");
-                return Task.CompletedTask;
-            };
+            _client.Ready += _onClientReady;
 
             await _client.LoginAsync(TokenType.Bot, token);
             await _client.StartAsync();
-            await _client.SetGameAsync("~help");
+            await _client.SetGameAsync("Use /dworkinhelp for help");
 
             // Block this task until the program is closed.
             await Task.Delay(-1);
         }
 
-        private async Task MessageUpdated(Cacheable<IMessage, ulong> before, SocketMessage after, ISocketMessageChannel channel)
+        private async Task<Task> _onClientReady()
         {
-            // If the message was not in the cache, downloading it will result in getting a copy of `after`.
-            var message = await before.GetOrDownloadAsync();
-            Console.WriteLine($"{message} -> {after}");
-        }
-
-        private async Task OnMessageReceivedAsync(SocketMessage s)
-        {
-            var msg = s as SocketUserMessage;     // Ensure the message is from a user/bot
-            if (msg == null) return;
-            if (msg.Author.Id == _client.CurrentUser.Id) return;     // Ignore self when checking commands
-            if (!msg.ToString().StartsWith("~")) return;
+            Console.WriteLine("Dworkin is connected!");
             
-            var context = new SocketCommandContext(_client, msg);     // Create the command context
-            
-            bool messageChannel = true;
-            string response = "";
+            // Bootstrap slash commands pt 1
+            var weatherCommand = _weatherCommand.BuildCommandWithOptions();
+            var bardCommand = _bardCommand.BuildCommandWithOptions();
+            var wildSurgeCommand = _wildSurgeCommand.BuildCommandWithOptions();
+            var npcCommand = _npcCommand.BuildCommandWithOptions();
+            var injuryCommand = _injuryCommand.BuildCommandWithOptions();
+            var madnessCommand = _madnessCommand.BuildCommandWithOptions();
+            var helpCommand = _helpCommand.BuildCommandWithOptions();
 
-            var commands = msg.ToString().Substring(1).Split(' ');
-
-            switch (commands[0].ToLower())
+            try
             {
-                case "help":
-                    response += Help();
-                    messageChannel = false;
-                    break;
+                // Bootstrap slash commands pt 2
+                await _client.CreateGlobalApplicationCommandAsync(weatherCommand.Build());
+                await _client.CreateGlobalApplicationCommandAsync(bardCommand.Build());
+                await _client.CreateGlobalApplicationCommandAsync(wildSurgeCommand.Build());
+                await _client.CreateGlobalApplicationCommandAsync(npcCommand.Build());
+                await _client.CreateGlobalApplicationCommandAsync(injuryCommand.Build());
+                await _client.CreateGlobalApplicationCommandAsync(madnessCommand.Build());
+                await _client.CreateGlobalApplicationCommandAsync(helpCommand.Build());
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Caught exception in command handler bootstrap logic;");
+                Console.WriteLine(e);
+            }
+            
+            return Task.CompletedTask;
+        }
+        
+        private async Task _onSlashCommandReceived(SocketSlashCommand command)
+        {
+            string response = null;
+            
+            // Branch on command name
+            switch (command.Data.Name)
+            {
                 case "weather":
-                case "w":
-                    response = _weatherCommand.Generate(commands);
-                    break;
-                case "wildsurge":
-                case "ws":
-                    response = _wildSurgeCommand.Generate(commands);
-                    break;
-                case "npc":
-                    response = _npcCommand.Generate(commands);
-                    break;
-                case "injury":
-                    response = _injuryCommand.Generate(commands);
-                    break;
-                case "madness":
-                    response = _madnessCommand.Generate(commands);
+                    response = _weatherCommand.Generate(command.Data);
                     break;
                 case "bard":
-                    response = _bardCommand.Generate(commands);
+                    response = _bardCommand.Generate(command.Data);
+                    break;
+                case "wildsurge":
+                    response = _wildSurgeCommand.Generate(command.Data);
+                    break;
+                case "npc":
+                    response = _npcCommand.Generate(command.Data);
+                    break;
+                case "injury":
+                    response = _injuryCommand.Generate(command.Data);
+                    break;
+                case "madness":
+                    response = _madnessCommand.Generate(command.Data);
+                    break;
+                case "dworkinhelp":
+                    response = _helpCommand.Generate(command.Data);
                     break;
                 default:
-                    response += "Command not recognized";
+                    response = "Unknown command";
                     break;
             }
             
-            if (messageChannel)
-                await context.Channel.SendMessageAsync(_diceParser.Parse(response));
-            else {
-                await context.User.SendMessageAsync(response);
-                await context.Channel.SendMessageAsync("I have sent help to your PMs.");
-            }
-        }
-
-        private string Help()
-        {
-            return "Commands"
-                 + "\n~wildsurge, ~ws: Randomly roll a Wild Surge effect."
-                 + "\n\tOptions:"
-                 + "\n\t -chaos: Roll on the large, extra chaotic table."
-                 + "\n\t -eldritch: Roll on the Ravenloft eldritch table."
-                 + "\n\t -izzet: Roll on the Izzet Guild table."
-                 + "\n\t -duration: Include a random duration value with the generated wild surge."
-                 + "\n\t digit: Directly lookup the value instead of rolling."
-                 + "\n~bard: Rolls for an inpirational or brutal remark to others around you."
-                 + "\n\tOptions:"
-                 + "\n\t -mockery: Rolls for a brutal insult."
-                 + "\n\t -inspiration: Rolls for an inspirational line to your comrads."
-                 + "\n~injury: Rolls for a Lingering Injury depending on type of damage."
-                 + "\n\tOptions:"
-                 + "\n\t -acid: Rolls for a lingering injury caused by acid."
-                 + "\n\t -cold: Rolls for a lingering injury caused by cold."
-                 + "\n\t -fire: Rolls for a lingering injury caused by fire."
-                 + "\n\t -force: Rolls for a lingering injury caused by force."
-                 + "\n\t -lightning: Rolls for a lingering injury caused by lightning."
-                 + "\n\t -necrotic: Rolls for a lingering injury caused by necrotic."
-                 + "\n\t -piercing: Rolls for a lingering injury caused by piercing."
-                 + "\n\t -poison: Rolls for a lingering injury caused by poison."
-                 + "\n\t -psychic: Rolls for a lingering injury caused by psychic."
-                 + "\n\t -radiant: Rolls for a lingering injury caused by radiant."
-                 + "\n\t -slashing: Rolls for a lingering injury caused by slashing."
-                 + "\n\t -thunder: Rolls for a lingering injury caused by thunder."
-                + "\n~madness: Rolls for a madness effect depending on the severity."
-                 + "\n\tOptions:"
-                 + "\n\t -short: Rolls for a short term madness effect."
-                 + "\n\t -long: Rolls for a long term madness effect."
-                 + "\n\t -indefinite: Rolls for a indefinite madness effect."
-                 + "\n~weather, ~w: Randomly generate a basic weather state."
-                 + "\n\tOptions:"
-                 + "\n\t -light: Randomly generate a light precipitation state."
-                 + "\n\t -medium: Randomly generate a medium precipitation state."
-                 + "\n\t -heavy: Randomly generate a heavy precipitation state."
-                 + "\n\t digit: Directly lookup the value instead of rolling."
-                 + "\n~npc: Randomly generate a basic NPC with a name, gender, race, and appearance.";
+            await command.RespondAsync($"{response ?? "No response / unrecognized bot command"}");
         }
     }
 }

@@ -1,11 +1,14 @@
 using System;
-using System.Text.RegularExpressions;
 using Dworkin.Interfaces;
 using Dworkin.Tables.Madness;
 using Dworkin.Utils;
+using System.Collections.Generic;
+using Discord;
+using Discord.WebSocket;
 
 namespace Dworkin.Commands
 {
+
     public class MadnessCommand : IGenerator
     {
         private Random _rng;
@@ -25,18 +28,46 @@ namespace Dworkin.Commands
             _tableIndefiniteMadness = new IndefiniteMadness();
         }
 
-        public string Generate(string[] commands)
+        public SlashCommandBuilder BuildCommandWithOptions()
         {
+            var commandBuilder = new SlashCommandBuilder();
+            commandBuilder.WithName("madness");
+            commandBuilder.WithDescription("Generate a random madness");
+            
+            commandBuilder.AddOption(new SlashCommandOptionBuilder()
+                .WithName("madness-type")
+                .WithDescription("How long should the madness last?")
+                .WithRequired(true)
+                .AddChoice("Short", "short")
+                .AddChoice("Long", "long")
+                .AddChoice("Indefinite", "indefinite")
+                .WithType(ApplicationCommandOptionType.String)
+            );
+            
+            return commandBuilder;
+        }
+
+        public string Generate(SocketSlashCommandData data)
+        {
+            List<string> commands = new List<string>();
+            
+            foreach (SocketSlashCommandDataOption option in data.Options)
+            {
+                commands.Add(option.Value.ToString());
+            }
+            
+            var madnessTypeArg = commands[0];
+            
             ITable table;
-            if (Array.Exists(commands, element => element.ToLower() == "-short"))
+            if (madnessTypeArg == "short")
             {
                 table = _tableShortTermMadness;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-long"))
+            else if (madnessTypeArg == "long")
             {
                 table = _tableLongTermMadness;
             }
-            else if (Array.Exists(commands, element => element.ToLower() == "-indefinite"))
+            else if (madnessTypeArg == "indefinite")
             {
                 table = _tableIndefiniteMadness;
             }
@@ -44,22 +75,24 @@ namespace Dworkin.Commands
             {
                 return $"Provided madness type does not correspond to the available list of options.";
             }
-
+        
             var randomValue = _rng.Next(table.TableSize);
-
-            Regex re = new Regex(@"\d+");
-            foreach (string element in commands)
-            {
-                if (re.IsMatch(element))
-                {
-                    randomValue = Int32.Parse(element);
-                    break;
-                }
-            }
-
-            if (randomValue > table.TableSize)
-                return $"Provided value is out of range. Selected table has {table.TableSize} rows.";
-
+            
+            // Temporarily disable the direct lookup option for now - sam - sept 21, 2022
+        
+            // Regex re = new Regex(@"\d+");
+            // foreach (string element in commands)
+            // {
+            //     if (re.IsMatch(element))
+            //     {
+            //         randomValue = Int32.Parse(element);
+            //         break;
+            //     }
+            // }
+            //
+            // if (randomValue > table.TableSize)
+            //     return $"Provided value is out of range. Selected table has {table.TableSize} rows.";
+        
             return $">>> [{randomValue}]: {TableManager.Fetch(table, randomValue)}";
         }
     }
