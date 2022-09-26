@@ -2,3 +2,6 @@ token.txt
 bin/
 obj/
 .vscode/
+.DS_Store
+.idea/
+Folder.DotSettings.user

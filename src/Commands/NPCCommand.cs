@@ -1,15 +1,18 @@
 using System;
 using System.Net.Http;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Dworkin.Interfaces;
 using Dworkin.Tables.AppearanceAdjectives;
 using Dworkin.Tables.Genders;
 using Dworkin.Tables.Races;
 using Dworkin.Utils;
+using System.Collections.Generic;
+using Discord;
+using Discord.WebSocket;
 
 namespace Dworkin.Commands
 {
+
     public class NPCCommand : IGenerator
     {
         private Random _rng;
@@ -29,26 +32,36 @@ namespace Dworkin.Commands
             _tableRaces = new Races();
         }
 
-        private string GenerateFromATable(ITable table, string[] commands)
+        public SlashCommandBuilder BuildCommandWithOptions()
+        {
+            var commandBuilder = new SlashCommandBuilder();
+            commandBuilder.WithName("npc");
+            commandBuilder.WithDescription("Generate a random NPC");
+            return commandBuilder;
+        }
+
+        private string GenerateFromATable(ITable table, List<string> commands)
         {
             var randomValue = _rng.Next(table.TableSize);
 
-            Regex re = new Regex(@"\d+");
-            foreach (string element in commands)
-            {
-                if (re.IsMatch(element))
-                {
-                    randomValue = Int32.Parse(element);
-                    break;
-                }
-            }
-
-            if (randomValue > table.TableSize || randomValue < 0)
-                return $"Provided value is out of range. Selected table has {table.TableSize} rows.";
-
+            // Temporarily disable the direct lookup option for now - sam - sept 21, 2022
+            
+            // Regex re = new Regex(@"\d+");
+            // foreach (string element in commands)
+            // {
+            //     if (re.IsMatch(element))
+            //     {
+            //         randomValue = Int32.Parse(element);
+            //         break;
+            //     }
+            // }
+            //
+            // if (randomValue > table.TableSize || randomValue < 0)
+            //     return $"Provided value is out of range. Selected table has {table.TableSize} rows.";
+        
             return $"{TableManager.Fetch(table, randomValue)}";
         }
-
+        
         private async Task<string> GenerateName(string uri)
         {
             HttpClient client = new HttpClient();
@@ -58,21 +71,28 @@ namespace Dworkin.Commands
             
             return responseBody.TrimStart('[').TrimEnd(']').Trim('"');
         }
-
-        public string Generate(string[] commands)
+        
+        public string Generate(SocketSlashCommandData data)
         {
+            List<string> commands = new List<string>();
+            
+            foreach (SocketSlashCommandDataOption option in data.Options)
+            {
+                commands.Add(option.Value.ToString());
+            }
+            
             ITable genderTable = _tableGenders;
             ITable appearanceAdjectivesTable = _tableAppearanceAdjectives;
             ITable racesTable = _tableRaces;
-
+        
             string gender = GenerateFromATable(genderTable, commands);
             string name = GenerateName($"https://namey.muffinlabs.com/name.json?type={gender}&with_surname=true&frequency=all").Result;
             string race = GenerateFromATable(racesTable, commands);
             string appearanceAdjective = GenerateFromATable(appearanceAdjectivesTable, commands);
-
+        
             string genderPronoun = "";
             var appearanceString = "appears";
-
+        
             if (gender == "female") {
                 genderPronoun = "She";
             } else if (gender == "male") {
@@ -81,7 +101,7 @@ namespace Dworkin.Commands
                 genderPronoun = "They";
                 appearanceString = "appear";
             }
-
+        
             return $">>> {name}, a {race} {gender}, stands before you. {genderPronoun} {appearanceString} {appearanceAdjective}.";
         }
     }
